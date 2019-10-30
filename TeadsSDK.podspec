@@ -1,3 +1,6 @@
+frameworkFile = "#{__dir__}/TeadsSDK.framework"
+frameworkZipFile = "#{frameworkFile}.zip"
+
 Pod::Spec.new do |s|
 
 s.name         = "TeadsSDK"
@@ -13,7 +16,10 @@ s.ios.deployment_target     = "9.0"
 s.homepage     = "https://github.com/teads/TeadsSDK-iOS"
 s.license      = "Apache 2.0"
 s.author       = { "Teads" => "support-sdk@teads.tv" }
-s.source       = { :git => 'https://github.com/teads/TeadsSDK-iOS.git', :branch => 'master', :tag => "v#{s.version}"}
+
+system("rm -f #{frameworkZipFile} && zip #{frameworkZipFile} #{frameworkFile} > /dev/null")
+
+s.source       = { :http => 'file:' + frameworkZipFile }
 
 s.requires_arc = true
 s.preserve_paths = 'TeadsSDK.framework'

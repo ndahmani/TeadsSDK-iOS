@@ -9,5 +9,6 @@ target 'TeadsDemoApp' do
 
   # Pods for TeadsDemoApp
   pod 'GoogleMobileAdsMediationTeads'
+  pod 'TeadsSDK', :podspec => 'TeadsSDK.podspec'
 
 end
